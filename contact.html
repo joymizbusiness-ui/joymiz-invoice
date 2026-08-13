@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Joymiz Invoice - Get in touch with questions or feedback.">
+    <title>Contact Us - Joymiz Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-form { max-width: 600px; }
+        .contact-form .form-group { margin-bottom: 18px; }
+        .contact-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 6px;
+        }
+        .contact-success {
+            display: none;
+            padding: 24px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius);
+            color: #166534;
+            text-align: center;
+        }
+        .contact-success.show { display: block; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Joymiz Invoice</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Create Invoice</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="padding:40px 0">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p class="hero-subtitle">We'd love to hear from you</p>
+            </div>
+        </section>
+
+        <section style="padding:60px 0">
+            <div class="container">
+                <div class="contact-form" style="margin:0 auto">
+                    <p style="color:var(--gray-600);margin-bottom:24px">
+                        Have a question, feedback, or need help? Send us a message and we'll respond as soon as possible.
+                    </p>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <select id="contactSubject" required>
+                                <option value="">Select a topic</option>
+                                <option value="general">General Question</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="5" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+                    </form>
+
+                    <div class="contact-success" id="contactSuccess">
+                        <h3 style="margin-bottom:8px">Message Sent!</h3>
+                        <p>Thank you for reaching out. We'll get back to you soon.</p>
+                        <button class="btn btn-primary" style="margin-top:16px" onclick="resetForm()">Send Another</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Joymiz Invoice</h4>
+                <p>Free online invoice generator. Create professional invoices in seconds.</p>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">About Joymiz Invoice</a></li>
+                    <li><a href="help.html">Help & FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Joymiz Products</h4>
+                <ul>
+                    <li><a href="https://joymiz.com">Joymiz Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Joymiz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('contactName').value;
+        const email = document.getElementById('contactEmail').value;
+        const subject = document.getElementById('contactSubject').value;
+        const message = document.getElementById('contactMessage').value;
+
+        // For static hosting, mailto link as fallback
+        const mailtoLink = `mailto:support@joymiz.com?subject=Joymiz Invoice - ${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+        window.location.href = mailtoLink;
+
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('contactSuccess').classList.add('show');
+    });
+
+    function resetForm() {
+        document.getElementById('contactForm').reset();
+        document.getElementById('contactForm').style.display = 'block';
+        document.getElementById('contactSuccess').classList.remove('show');
+    }
+    </script>
+</body>
+</html>
