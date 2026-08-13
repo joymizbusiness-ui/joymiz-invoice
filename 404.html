@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Joymiz Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Joymiz Invoice</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Create Invoice</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section style="padding:100px 0;text-align:center">
+            <div class="container">
+                <h1 style="font-size:4rem;color:var(--gray-300);margin-bottom:16px">404</h1>
+                <h2 style="margin-bottom:12px;color:var(--gray-700)">Page Not Found</h2>
+                <p style="color:var(--gray-500);margin-bottom:32px">The page you're looking for doesn't exist or has been moved.</p>
+                <a href="index.html" class="btn btn-primary" style="display:inline-flex">Go to Invoice Generator</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Joymiz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    </script>
+</body>
+</html>
