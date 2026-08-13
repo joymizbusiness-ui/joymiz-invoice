@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online invoice generator. Create professional invoices in seconds. No sign-up required. Download as PDF instantly.">
+    <meta name="keywords" content="invoice generator, free invoice, invoice maker, create invoice online, PDF invoice">
+    <title>Joymiz Invoice - Free Online Invoice Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Joymiz Invoice</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Create Invoice</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Free Online Invoice Generator</h1>
+                <p class="hero-subtitle">Create Professional Invoices in Seconds. No Sign-Up Required.</p>
+                <p class="hero-desc">Generate, customize, and download professional invoices instantly. All data stays in your browser.</p>
+            </div>
+        </section>
+
+        <section class="invoice-section">
+            <div class="container invoice-layout">
+                <div class="invoice-form-panel">
+                    <form id="invoiceForm">
+                        <div class="form-section">
+                            <h3 class="section-title">From (Your Details)</h3>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="fromName">Business / Your Name</label>
+                                    <input type="text" id="fromName" placeholder="Your Company Name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="fromEmail">Email</label>
+                                    <input type="email" id="fromEmail" placeholder="you@company.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="fromAddress">Address</label>
+                                    <textarea id="fromAddress" rows="2" placeholder="123 Business St, City, Country"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="fromPhone">Phone</label>
+                                    <input type="tel" id="fromPhone" placeholder="+44 123 456 7890">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">To (Client Details)</h3>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="toName">Client / Company Name</label>
+                                    <input type="text" id="toName" placeholder="Client Company Name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="toEmail">Client Email</label>
+                                    <input type="email" id="toEmail" placeholder="client@company.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="toAddress">Client Address</label>
+                                    <textarea id="toAddress" rows="2" placeholder="456 Client Ave, City, Country"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Invoice Details</h3>
+                            <div class="form-row three-col">
+                                <div class="form-group">
+                                    <label for="invoiceNumber">Invoice Number</label>
+                                    <input type="text" id="invoiceNumber" placeholder="INV-001">
+                                </div>
+                                <div class="form-group">
+                                    <label for="invoiceDate">Date</label>
+                                    <input type="date" id="invoiceDate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dueDate">Due Date</label>
+                                    <input type="date" id="dueDate">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="currency">Currency</label>
+                                    <select id="currency">
+                                        <option value="GBP">GBP (£) - British Pound</option>
+                                        <option value="USD" selected>USD ($) - US Dollar</option>
+                                        <option value="EUR">EUR (€) - Euro</option>
+                                        <option value="CAD">CAD (C$) - Canadian Dollar</option>
+                                        <option value="AUD">AUD (A$) - Australian Dollar</option>
+                                        <option value="JPY">JPY (¥) - Japanese Yen</option>
+                                        <option value="INR">INR (₹) - Indian Rupee</option>
+                                        <option value="CHF">CHF (Fr) - Swiss Franc</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Line Items</h3>
+                            <div class="table-responsive">
+                                <table id="itemsTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-desc">Description</th>
+                                            <th class="col-qty">Qty</th>
+                                            <th class="col-rate">Rate</th>
+                                            <th class="col-amount">Amount</th>
+                                            <th class="col-action"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="itemsBody">
+                                        <tr>
+                                            <td><input type="text" class="item-desc" placeholder="Item description"></td>
+                                            <td><input type="number" class="item-qty" value="1" min="1"></td>
+                                            <td><input type="number" class="item-rate" value="0" min="0" step="0.01"></td>
+                                            <td class="item-amount">$0.00</td>
+                                            <td><button type="button" class="btn-remove" onclick="removeRow(this)" title="Remove">✕</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button type="button" class="btn-add" onclick="addRow()">+ Add Line Item</button>
+                        </div>
+
+                        <div class="form-section totals-section">
+                            <div class="totals-row">
+                                <label>Subtotal</label>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="totals-row">
+                                <label>Tax (%)</label>
+                                <input type="number" id="taxRate" value="0" min="0" max="100" step="0.1">
+                                <span id="taxAmount">$0.00</span>
+                            </div>
+                            <div class="totals-row">
+                                <label>Discount (%)</label>
+                                <input type="number" id="discountRate" value="0" min="0" max="100" step="0.1">
+                                <span id="discountAmount">-$0.00</span>
+                            </div>
+                            <div class="totals-row total">
+                                <label>Total</label>
+                                <span id="totalAmount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Notes / Payment Terms</h3>
+                            <textarea id="notes" rows="3" placeholder="Payment terms, bank details, or additional notes..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary" onclick="previewInvoice()">Preview Invoice</button>
+                            <button type="button" class="btn btn-success" onclick="downloadPDF()">Download PDF</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="preview-panel" id="previewPanel">
+                    <div class="preview-header">
+                        <h3>Live Preview</h3>
+                        <button class="btn-close-preview" onclick="togglePreview()">✕</button>
+                    </div>
+                    <div class="preview-content" id="invoicePreview">
+                        <div class="invoice-paper">
+                            <div class="invoice-paper-header">
+                                <div class="invoice-logo">
+                                    <div class="logo-placeholder">LOGO</div>
+                                </div>
+                                <div class="invoice-title-section">
+                                    <h2>INVOICE</h2>
+                                    <p><strong id="previewInvNumber">INV-001</strong></p>
+                                </div>
+                            </div>
+                            <div class="invoice-paper-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Date:</span>
+                                    <span id="previewDate">-</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Due Date:</span>
+                                    <span id="previewDueDate">-</span>
+                                </div>
+                            </div>
+                            <div class="invoice-paper-parties">
+                                <div class="party">
+                                    <h4>From</h4>
+                                    <p id="previewFromName">Your Name</p>
+                                    <p id="previewFromEmail"></p>
+                                    <p id="previewFromAddress"></p>
+                                    <p id="previewFromPhone"></p>
+                                </div>
+                                <div class="party">
+                                    <h4>Bill To</h4>
+                                    <p id="previewToName">Client Name</p>
+                                    <p id="previewToEmail"></p>
+                                    <p id="previewToAddress"></p>
+                                </div>
+                            </div>
+                            <table class="invoice-paper-table">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Qty</th>
+                                        <th>Rate</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="previewItems"></tbody>
+                            </table>
+                            <div class="invoice-paper-totals">
+                                <div class="totals-line">
+                                    <span>Subtotal</span>
+                                    <span id="previewSubtotal">$0.00</span>
+                                </div>
+                                <div class="totals-line" id="previewTaxLine" style="display:none">
+                                    <span>Tax (<span id="previewTaxRate">0</span>%)</span>
+                                    <span id="previewTaxAmount">$0.00</span>
+                                </div>
+                                <div class="totals-line" id="previewDiscountLine" style="display:none">
+                                    <span>Discount (<span id="previewDiscountRate">0</span>%)</span>
+                                    <span id="previewDiscountAmount">-$0.00</span>
+                                </div>
+                                <div class="totals-line total">
+                                    <span>Total</span>
+                                    <span id="previewTotal">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="invoice-paper-footer">
+                                <p class="notes" id="previewNotes"></p>
+                                <p class="thank-you">Thank you for your business!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Joymiz Invoice</h4>
+                <p>Free online invoice generator. Create professional invoices in seconds.</p>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">About Joymiz Invoice</a></li>
+                    <li><a href="help.html">Help & FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Joymiz Products</h4>
+                <ul>
+                    <li><a href="https://joymiz.com">Joymiz Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Joymiz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
