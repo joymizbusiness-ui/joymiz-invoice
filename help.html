@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Help and FAQ for Joymiz Invoice - Learn how to create invoices, download PDFs, and more.">
+    <title>Help & FAQ - Joymiz Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-list { list-style: none; }
+        .faq-item { border-bottom: 1px solid var(--gray-200); }
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+        .faq-q:hover { color: var(--primary); }
+        .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--gray-400); transition: transform 0.2s; }
+        .faq-item.open .faq-q::after { transform: rotate(45deg); }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--gray-600);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        .faq-item.open .faq-a {
+            max-height: 300px;
+            padding-bottom: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Joymiz Invoice</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Create Invoice</a></li>
+                <li><a href="help.html" class="active">Help</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="padding:40px 0">
+            <div class="container">
+                <h1>Help & FAQ</h1>
+                <p class="hero-subtitle">Everything you need to know about Joymiz Invoice</p>
+            </div>
+        </section>
+
+        <section style="padding:60px 0">
+            <div class="container" style="max-width:720px">
+                <ul class="faq-list">
+                    <li class="faq-item">
+                        <button class="faq-q">How do I create an invoice?</button>
+                        <div class="faq-a">
+                            <p>Simply fill in your details (From), your client's details (To), invoice number, dates, and line items. The invoice preview updates in real-time. Click "Download PDF" when ready.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Is Joymiz Invoice really free?</button>
+                        <div class="faq-a">
+                            <p>Yes, completely free. No sign-up, no trials, no hidden fees. All features are available to everyone, forever.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">How do I download the invoice as a PDF?</button>
+                        <div class="faq-a">
+                            <p>Click the "Download PDF" button. This opens your browser's print dialog. Select "Save as PDF" as the destination, then save. The invoice is formatted for clean PDF output.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Is my data saved or sent to a server?</button>
+                        <div class="faq-a">
+                            <p>No. All data stays in your browser. Nothing is sent to any server. When you close the page, all data is gone unless you've saved the PDF.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Can I add a company logo?</button>
+                        <div class="faq-a">
+                            <p>The invoice includes a logo placeholder. You can replace it with your logo by editing the HTML before printing, or by using the print dialog's header options.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Which currencies are supported?</button>
+                        <div class="faq-a">
+                            <p>We support GBP (£), USD ($), EUR (€), CAD (C$), AUD (A$), JPY (¥), INR (₹), and CHF (Fr). Select your currency from the dropdown.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Can I add tax and discounts?</button>
+                        <div class="faq-a">
+                            <p>Yes. Enter your tax rate and/or discount percentage. The totals update automatically in both the form and the preview.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Does it work on mobile?</button>
+                        <div class="faq-a">
+                            <p>Yes. The invoice generator is fully responsive and works on phones, tablets, and desktops. On mobile, tap "Preview Invoice" to see the full preview.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Can I save my invoice for later?</button>
+                        <div class="faq-a">
+                            <p>Since all data stays in your browser, it's not saved automatically. Download the PDF to keep a copy. For recurring invoices, save the PDF and duplicate it as needed.</p>
+                        </div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Who can I contact for support?</button>
+                        <div class="faq-a">
+                            <p>Visit our <a href="contact.html">Contact page</a> to send us a message. We'll get back to you as soon as possible.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Joymiz Invoice</h4>
+                <p>Free online invoice generator. Create professional invoices in seconds.</p>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">About Joymiz Invoice</a></li>
+                    <li><a href="help.html">Help & FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More Joymiz Products</h4>
+                <ul>
+                    <li><a href="https://joymiz.com">Joymiz Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Joymiz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        });
+    });
+    </script>
+</body>
+</html>
